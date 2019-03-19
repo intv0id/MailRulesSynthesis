@@ -1,0 +1,45 @@
+using MailRules.Types;
+using semantics MailRules.Semantics;
+language MailRules;
+
+@start Action action := IfThenElse(condition, action, action)
+
+bool condition := 
+    | True()
+    | Id(matchingCondition)
+    | And(condition, condition) 
+    | Or(condition, condition) 
+    | Not(condition);
+
+bool matchingCondition := 
+    | Id(receiverCondition)
+    | Id(senderCondition)
+    | Id(objectCondition);
+
+bool receiverCondition := let mReceiver: Contact = message.mReceiver in
+    | Is(mReceiver, constVal)
+    | Contains(mReceiver, constVal)
+    | IsInAddressBook(mReceiver)
+    | StartsWith(mReceiver, constVal)
+    | EndsWith(mReceiver, constVal);
+    
+bool senderCondition := let mSender: Contact = message.mSender in
+    | Is(mSender, constVal)
+    | Contains(mSender, constVal)
+    | IsInAddressBook(mSender)
+    | StartsWith(mSender, constVal)
+    | EndsWith(mSender, constVal);
+    
+bool objectCondition := let mObject: string = message.mObject in
+    | Is(mObject, constVal)
+    | Contains(mObject, constVal)
+    | IsInAddressBook(mObject)
+    | StartsWith(mObject, constVal)
+    | EndsWith(mObject, constVal);
+
+// Terminal rules
+string constVal;
+bool constBool;
+
+@input Message message;
+    
