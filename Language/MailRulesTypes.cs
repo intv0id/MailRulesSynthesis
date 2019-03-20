@@ -1,13 +1,13 @@
 namespace MailRules.Types
 {
-    enum Action
+    public enum MailAction : byte
     {
         MoveTo,
         Delete,
         None
     }
 
-    struct Message
+    public struct Message
     {
         string mSender;
         string mReceiver;
