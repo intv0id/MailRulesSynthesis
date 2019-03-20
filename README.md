@@ -18,6 +18,7 @@ We are currently using the [Enron Email Dataset](https://www.cs.cmu.edu/~./enron
 
 ## Ressources
 
+- [Prose API documentation](https://prose-docs.azurewebsites.net/html/R_Project_PROSE.htm)
 - [Learn more on DSL Synthesis in Prose](https://microsoft.github.io/prose/documentation/prose/usage/)
 - [A 2016 state-of-the-art for programming by example](https://www.microsoft.com/en-us/research/wp-content/uploads/2017/10/program_synthesis_now.pdf)
 
