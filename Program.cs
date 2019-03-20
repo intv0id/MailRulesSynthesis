@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MailRulesSynthesis
+namespace MailRules
 {
     class Program
     {
